@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+
+    <title>Play Piggyback Run</title>
+
+    <meta property="og:type" content="website">
+    <meta property="og:title"
+          content="Piggyback Run">
+
+    <meta property="og:description"
+          content="Fun piggyback ride game adventure in a school corridor!">
+
+    <meta property="og:image"
+          content="https://trendybrandygames.github.io/corridor-club/assets/social-preview.jpg">
+
+    <meta property="og:url"
+          content="https://trendybrandygames.github.io/corridor-club/play/">
+
+    <script>
+        const stores = {
+            android: "https://play.google.com/store/apps/details?id=io.github.trendybrandygames.piggybackrun",
+            ios: null,
+            windows: null
+        };
+
+        function detectPlatform() {
+            const ua = navigator.userAgent;
+
+            if (/Android/i.test(ua)) {
+                return "android";
+            }
+
+            if (
+                /iPhone|iPad|iPod/i.test(ua) ||
+                (navigator.platform === "MacIntel" &&
+                 navigator.maxTouchPoints > 1)
+            ) {
+                return "ios";
+            }
+
+            if (/Windows/i.test(ua)) {
+                return "windows";
+            }
+
+            return "other";
+        }
+
+        const platform = detectPlatform();
+        const destination = stores[platform];
+
+        if (destination) {
+            window.location.replace(destination);
+        } else {
+            window.location.replace("../download/");
+        }
+    </script>
+</head>
+<body>
+    <h1>Corridor Club</h1>
+    <p>Redirecting to your app store...</p>
+    <a href="../download/">Choose your app store</a>
+</body>
+</html>
